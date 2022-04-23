@@ -41,6 +41,7 @@ class IttangoController extends Controller
         return view('create');
     }
 
+    //新規登録処理
     public function store(Request $request)
     {
         
@@ -61,4 +62,34 @@ class IttangoController extends Controller
 
         return $this->index();
     }
+
+
+        // ToDo 詳細画面作成
+        // 詳細表示
+        // 詳細画面にボタン作成（戻る、削除）
+        // 「削除してよろしいですか？」確認
+    public function syosai(Request $request)
+    {
+        dd($request->id);
+    }
+        
+
+    // //削除処理
+    // public function destroy(Request $request)
+    // {
+        
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

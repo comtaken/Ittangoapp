@@ -26,12 +26,14 @@
         </div>
     @endif
     <main class="flex justify-center">
+        {{-- <form action="{{route('seach')}}" method="get"> --}}
         <form action="{{route('seach')}}" method="get">
             <div class="my-1">
                 <input
                 class="flex justify-center marker:focus:outline-none focus:shadow-outline focus:border-blue-300" name="seach_input">
-                <input type="submit" value="検索" class="bg-indigo-500 font-semibold text-white py-2 px-12 rounded">
+                <input type="submit" formaction="{{route('seach')}}" value="検索" class="bg-indigo-500 font-semibold text-white py-2 px-12 rounded">
             </div>
+        </form>
             <div class="col-sm-12">
                 <a href="{{route('create')}}" class="btn btn-primary" style="margin:20px;">新規登録</a>
             </div>
@@ -40,31 +42,30 @@
             </div>
         <br>
         <div>
-            <table class="border-solid border-2 border-gray-300">
-                <thead class="text-2xl font-bold">
-                    <tr>
-                        <td class="border-solid border-2 border-gray-300">単語</td>
-                        <td class="border-solid border-2 border-gray-300">説明</td>
-                        <td class="border-solid border-2 border-gray-300">調べ回数</td>
-                    </tr>
-                </thead>
-                <tbody class="text-lg">
-                    @foreach($tango_list as $item)
-                    <tr class="border-solid border-2 border-gray-300">
-                        <td class="border-solid border-2 border-gray-300">{{$item->tango}}</td>
-                        <td class="border-solid border-2 border-gray-300">{{$item->setumei}}</td>
-                        <td class="border-solid border-2 border-gray-300">{{$item->kaisu}}</td>
-                        <td><a href="" class="btn btn-primary btn-sm">編集</a></td>
-                        <td>
-                            <input type="hidden" name="_token" value="">
-                            <input type="submit" value="削除" class="btn btn-danger btn-sm btn-destroy">
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <form action="" method="post"> 
+                @csrf  
+                <table class="border-solid border-2 border-gray-300">
+                    <thead class="text-2xl font-bold">
+                        <tr>
+                            <td class="border-solid border-2 border-gray-300">単語</td>
+                            <td class="border-solid border-2 border-gray-300">説明</td>
+                            <td class="border-solid border-2 border-gray-300">調べ回数</td>
+                        </tr>
+                    </thead>
+                    <tbody class="text-lg">
+                        @foreach($tango_list as $item)
+                        <tr class="border-solid border-2 border-gray-300">
+                            <td class="border-solid border-2 border-gray-300">{{$item->tango}}</td>
+                            <td class="border-solid border-2 border-gray-300">{{$item->setumei}}</td>
+                            <td class="border-solid border-2 border-gray-300">{{$item->kaisu}}</td>
+                            <td><a href="./syosai/{{$item->id}}" class="btn btn-primary btn-sm">詳細</a></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </form>
         </div>
-    </form>
+    
     </main>
 
 </body>

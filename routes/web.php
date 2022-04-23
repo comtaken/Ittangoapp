@@ -29,3 +29,9 @@ Route::get('/create', [IttangoController::class,'create'])->name('create');
 
 //新規登録処理
 Route::post('/store', [IttangoController::class,'store'])->name('store');
+
+//詳細
+Route::get('/syosai/{id}', [IttangoController::class,'syosai']);
+
+// //削除処理
+// Route::post('/destroy',[IttangoController::class,'destroy'])->name('destroy');
