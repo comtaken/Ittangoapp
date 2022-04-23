@@ -21,9 +21,9 @@ class IttangoController extends Controller
         $validated = $request->validate([
             'seach_input'=>'required',
         ],
-    [
-        'seach_input.required'=>'検索文字を入力して下さい。', 
-    ]);
+        [
+            'seach_input.required'=>'検索文字を入力して下さい。', 
+        ]);
         $input = $request->input('seach_input');
         if(isset($input))
         {
@@ -33,5 +33,32 @@ class IttangoController extends Controller
         }
 
         
+    }
+
+    //新規登録画面へ
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function store(Request $request)
+    {
+        
+        $vallidated = $request->validate([
+            'newtango'=>'required',
+            'newsetumei'=>'required',
+        ],
+        [
+            'newtango.required'=>'単語を入力してください。',
+            'newsetumei.required'=>'意味を入力してください。',
+        ]);
+
+        $tango_list = new Ittango;
+        $tango_list->tango = $request->input('newtango');
+        $tango_list->setumei = $request->input('newsetumei');
+        $tango_list->kaisu = 0;
+        $tango_list->save();
+
+        return $this->index();
     }
 }

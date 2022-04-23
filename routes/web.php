@@ -23,3 +23,9 @@ Route::get('/index', [IttangoController::class,'index'])->name('index');
 
 //検索処理
 Route::get('/seach', [IttangoController::class,'seach'])->name('seach');
+
+//新規登録画面
+Route::get('/create', [IttangoController::class,'create'])->name('create');
+
+//新規登録処理
+Route::post('/store', [IttangoController::class,'store'])->name('store');
