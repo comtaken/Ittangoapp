@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Models\Ittango;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class IttangoController extends Controller
 {
@@ -17,14 +18,20 @@ class IttangoController extends Controller
     //検索処理
     public function seach(Request $request)
     {
-        //$ittango = Ittango::all();
+        $validated = $request->validate([
+            'seach_input'=>'required',
+        ],
+    [
+        'seach_input.required'=>'検索文字を入力して下さい。', 
+    ]);
         $input = $request->input('seach_input');
         if(isset($input))
         {
             $tango_list = Ittango::select('*')->where('tango','like',"%$input%")->get();
-        }else{
-            dd("bb");
+
+            return view('index',compact('tango_list'));
         }
-        dd($tango_list);
+
+        
     }
 }

@@ -16,6 +16,15 @@
             <h4>単語検索</h4>
         </div>
     </header>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="text-red-600">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <main class="flex justify-center">
         <form action="{{route('seach')}}" method="get">
             <div class="my-1">
