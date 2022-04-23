@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/app.css" rel="stylesheet">
-    {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> --}}
+     {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>単語帳</title>
 </head>
 
@@ -15,6 +16,13 @@
         <div class="text-4xl align-top">
             <h4>単語検索</h4>
         </div>
+        <body>
+            <!--- ここからテスト用 --->
+            <button type="button" class="cursor-pointer m-5 p-3 shadow-md rounded-md font-semibold text-white text-base bg-blue-500 hover:bg-blue-700 ring-blue-200 ring-2">
+              テスト
+            </button>
+            <!--- ここまでテスト用 --->
+        </body>
     </header>
     @if ($errors->any())
         <div class="alert alert-danger">
