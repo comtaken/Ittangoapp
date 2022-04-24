@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+       function confirmDelete(){
+    flag = confirm("本当に削除しますか？");
+
+    // 「はい」が押されたときの処理
+    if ( flag == true ){
+        alert("「はい」が押されました");
+    }else{    // 「いいえ」が押されたときの処理
+        alert("「いいえ」が押されました");
+    }
+};
+    </script>
     <title>編集</title>
 </head>
 <body>
+    <div>
+        <h3>編集・削除</h3>
+    </div>
     <div>
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -18,21 +33,29 @@
         </div>
     @endif
     </div>
-    <form action="{{route('store')}}" method="post">
+   
+    <form action="{{route('stor_dest')}}" method="post">
         @csrf
+    @foreach ($tango_list as $item)
     <div>
         単語：
         <br>
-        <input type="text" name="newtango">
+        <input type="text" name="newtango" value="{{$item->tango}}">
         <br>
         意味：
         <br>
-        <input type="text" name="newsetumei">
+        <input type="text" name="newsetumei" value="{{$item->setumei}}">
         <br>
         <br>
-        <input type="submit" value="新規登録">
+        <input type="hidden" name="id" value="{{$item->id}}">
+        <input type="submit" name="store" value="編集完了">
+        <br>
+        <br>
+        <input type="submit" name="destroy" value="削除" onclick="confirmDelete()">
     </div>
+    @endforeach
     </form>
+    <br>
     <div class="col-sm-12">
         <a href="{{route('index')}}" class="btn btn-primary" style="margin:20px;">戻る</a>
     </div>

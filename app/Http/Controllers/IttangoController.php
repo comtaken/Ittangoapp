@@ -78,23 +78,27 @@ class IttangoController extends Controller
         return view('edit',compact('id','tango_list'));
     }
         
+    //ToDo 編集処理
+    // 編集、削除処理
+    public function stor_dest(Request $request)
+    {
+        //編集処理
+        if($request->has('store'))
+        {
+            
+        }
 
-    // //削除処理
-    // public function destroy(Request $request)
-    // {
-        
-    // }
+        //削除処理
+        if($request->has('destroy'))
+        {
+            $tango_list = Ittango::find($request->id)->get();
+            if($tango_list !== null)
+            {
+                $tango_list = Ittango::find($request->id)->delete();
+            }
+        }
 
-
-
-
-
-
-
-
-
-
-
-
+        return $this->index();
+    }
 
 }

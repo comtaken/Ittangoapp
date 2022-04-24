@@ -8,6 +8,9 @@
 </head>
 <body>
     <div>
+        <h3>新規登録</h3>
+    </div>
+    <div>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
