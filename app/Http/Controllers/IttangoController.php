@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Debugbar;
 use App\Models\Models\Ittango;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -64,13 +65,17 @@ class IttangoController extends Controller
     }
 
 
-        // ToDo 詳細画面作成
-        // 詳細表示
-        // 詳細画面にボタン作成（戻る、削除）
+        // ToDo 編集画面作成
+        // 編集表示
+        // 編集画面にボタン作成（戻る、削除）
         // 「削除してよろしいですか？」確認
-    public function syosai(Request $request)
+    public function edit(Request $request)
     {
-        dd($request->id);
+        $id = $request->id;
+
+        $tango_list = Ittango::where('id',$id)->get();
+        
+        return view('edit',compact('id','tango_list'));
     }
         
 
