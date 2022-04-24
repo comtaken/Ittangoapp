@@ -60,12 +60,14 @@ class IttangoController extends Controller
         $tango_list->setumei = $request->input('newsetumei');
         $tango_list->kaisu = 0;
         $tango_list->save();
-
+        
+        //ToDo 違う方法で二重送信回避したい
+        header('Location: ./index');
+		exit;
         return $this->index();
     }
 
 
-        // ToDo 編集画面作成
         // 編集表示
         // 編集画面にボタン作成（戻る、削除）
         // 「削除してよろしいですか？」確認
@@ -78,7 +80,6 @@ class IttangoController extends Controller
         return view('edit',compact('id','tango_list'));
     }
         
-    //ToDo 編集処理
     // 編集、削除処理
     public function stor_dest(Request $request)
     {
@@ -98,6 +99,9 @@ class IttangoController extends Controller
             }
         }
 
+        //ToDo 違う方法で二重送信回避したい
+        header('Location: ./index');
+		exit;
         return $this->index();
     }
 

@@ -5,16 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
-       function confirmDelete(){
-    flag = confirm("本当に削除しますか？");
-
-    // 「はい」が押されたときの処理
-    if ( flag == true ){
-        alert("「はい」が押されました");
-    }else{    // 「いいえ」が押されたときの処理
-        alert("「いいえ」が押されました");
-    }
-};
+        function kakunin(frm){
+        flag = confirm("本当に削除しますか?");
+        return flag;
+        }
     </script>
     <title>編集</title>
 </head>
@@ -51,7 +45,7 @@
         <input type="submit" name="store" value="編集完了">
         <br>
         <br>
-        <input type="submit" name="destroy" value="削除" onclick="confirmDelete()">
+        <input type="submit" name="destroy" value="削除" onClick="return kakunin(this.form);">
     </div>
     @endforeach
     </form>
