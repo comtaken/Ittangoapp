@@ -34,4 +34,4 @@ Route::post('/store', [IttangoController::class,'store'])->name('store');
 Route::get('/edit/{id}', [IttangoController::class,'edit']);
 
 //編集・削除処理
-Route::post('/stor_dest',[IttangoController::class,'stor_dest'])->name('stor_dest');
+Route::post('/up_dest',[IttangoController::class,'up_dest'])->name('up_dest');

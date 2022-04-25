@@ -28,7 +28,7 @@
     @endif
     </div>
    
-    <form action="{{route('stor_dest')}}" method="post">
+    <form action="{{route('up_dest')}}" method="post">
         @csrf
     @foreach ($tango_list as $item)
     <div>
@@ -36,7 +36,7 @@
         <br>
         <input type="text" name="newtango" value="{{$item->tango}}">
         <br>
-        意味：
+        説明：
         <br>
         <input type="text" name="newsetumei" value="{{$item->setumei}}">
         <br>

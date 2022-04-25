@@ -28,7 +28,7 @@
         <br>
         <input type="text" name="newtango">
         <br>
-        意味：
+        説明：
         <br>
         <input type="text" name="newsetumei">
         <br>

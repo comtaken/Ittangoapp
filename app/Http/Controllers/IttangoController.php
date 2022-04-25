@@ -52,7 +52,7 @@ class IttangoController extends Controller
         ],
         [
             'newtango.required'=>'単語を入力してください。',
-            'newsetumei.required'=>'意味を入力してください。',
+            'newsetumei.required'=>'説明を入力してください。',
         ]);
 
         $tango_list = new Ittango;
@@ -81,11 +81,23 @@ class IttangoController extends Controller
     }
         
     // 編集、削除処理
-    public function stor_dest(Request $request)
+    public function up_dest(Request $request)
     {
+        $validated = $request->validate([
+            'newtango'=>'required',
+            'newsetumei'=>'required',
+        ],
+        [
+            'newtango.required'=>'単語を入力してください。',
+            'newsetumei.required'=>'説明を入力してください。',
+        ]);
         //編集処理
         if($request->has('store'))
         {
+            Ittango::where('id',$request->id)->update([
+                'tango'=>$request->newtango,
+                'setumei'=>$request->newsetumei,
+            ]);
             
         }
 
