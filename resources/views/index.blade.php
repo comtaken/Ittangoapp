@@ -5,18 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/app.css" rel="stylesheet">
-     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> 
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> 
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <title>単語帳</title>
 </head>
-<hr>
-<body class="flex justify-center">
-    <hr>
-    <header class="">
-            単語検索
-    </header>
-    <hr>
-    @if ($errors->any())
+<body class="flex justify-center bg-red-50">
+    
+            
+    <main class="my-12 ">
+        @if ($errors->any())
         <div class="">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -25,8 +22,7 @@
             </ul>
         </div>
     @endif
-    <hr>
-    <main class="m-16">
+        <div>単語検索</div>
         {{-- <form action="{{route('seach')}}" method="get"> --}}
             <hr>
         <form action="{{route('seach')}}" method="get">
@@ -48,7 +44,7 @@
         <div>
             <form action="" method="post"> 
                 @csrf  
-                <table class="border-solid border-2 border-gray-300">
+                <table class="border-solid border-2 border-gray-300 ">
                     <thead class="text-2xl font-bold">
                         <tr>
                             <td class="border-solid border-2 border-gray-300">単語</td>
