@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\IttangoController;
+
+use App\Http\Controllers\AuthCountroller;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +20,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//ログインページ表示
+Route::get('/login', [AuthCountroller::class,'login'])->name('login');
+
+//ログイン処理
+Route::post('/auth', [AuthCountroller::class,'auth'])->name('auth');
+
+//ユーザー新規登録表示
+Route::get('/createUser', [AuthCountroller::class,'createUser'])->name('createUser');
+
+//ユーザー新規登録処理
+Route::post('/storeUser', [AuthCountroller::class,'storeUser'])->name('storeUser');
 
 //一覧表示
 Route::get('/index', [IttangoController::class,'index'])->name('index');
