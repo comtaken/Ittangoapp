@@ -19,6 +19,13 @@
             </ul>
         </div>
     @endif
+    @if (isset($message))
+        <div class="alert alert-danger">
+            <ul>
+                <li class="text-green-400">{{ $message}}</li>
+            </ul>
+        </div>
+    @endif
     </div>
     <form action="{{route('auth')}}" method="post">
         @csrf
@@ -39,7 +46,7 @@
         </div>
         <br>
         <div>
-            <a href="{{route('createUser')}}" class="btn btn-primary" style="margin:20px;">新規登録</a>
+            <a href="{{route('createUser')}}" class="btn btn-primary" style="margin:20px;">ユーザ新規登録</a>
         </div>
     </form>
 </body>
