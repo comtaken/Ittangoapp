@@ -37,7 +37,18 @@ class AuthCountroller extends Controller
             'password.max'=>'パスワードは１００文字以内で入力してください。',
         ]);
 
-        return redirect()->route('index');
+        $result = false;
+
+
+
+        if($result)
+        {
+            return redirect()->route('index');
+        }else{
+            //TODO: ログイン失敗しました。の画面に遷移
+            return view('error.errorLogin');
+        }
+        
     }
 
     //新規ユーザ登録画面表示
