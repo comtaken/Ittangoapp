@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Rules\AlphaRule;
+use Illuminate\Support\Facades\DB;
 
 /**
  * 認証機能
@@ -48,6 +49,8 @@ class AuthCountroller extends Controller
     //新規ユーザ登録処理
     public function storeUser(Request $request)
     {
+        
+
         $validated = $request->validate([
             'name'=>'required',
             'email'=>'required',
@@ -61,25 +64,34 @@ class AuthCountroller extends Controller
             'password.max'=>'パスワードは１００文字以内で入力してください。',
         ]);
         
-        if(isset($request->name) 
-        && isset($request->email) 
-        && isset($request->password))
-        {
-            $users = new User();
+        DB::beginTransaction();
 
-            $users->fill([
-            'name'=>$request->name
-            ,'email'=>$request->email
-            ,'password'=>password_hash($request->password,
-            PASSWORD_DEFAULT)
-            ]);
+        try{
+            if(isset($request->name) 
+            && isset($request->email) 
+            && isset($request->password))
+            {
+                $users = new User();
+                $users->fill([
+                'name'=>$request->name
+                ,'email'=>$request->email
+                ,'password'=>password_hash($request->password,
+                PASSWORD_DEFAULT)
+                ]);
 
-            $users->save();
+                $users->save();
 
-            $message = 'ユーザー登録完了しました。';
+                DB::commit();
 
-            return view('login',compact('message'));
-            // return $this->login();
-        }
+                $message = 'ユーザー登録完了しました。';
+
+                return view('login',compact('message'));
+                
+            }
+        //「\Exception」バックスラッシュを入れなければキャッチしない
+        }catch(\Exception $e){
+            DB::rollBack();
+            return view('error.errorCreateUser');
+        }   
     } 
 }
