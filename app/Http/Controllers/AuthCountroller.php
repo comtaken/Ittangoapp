@@ -25,6 +25,7 @@ class AuthCountroller extends Controller
     //ログイン処理
     public function auth(Request $request)
     {
+        //ログインinputバリデーション
         $validated = $request->validate([
             'email'=>'required',
             'password' => ['required','min:8','max:100',new AlphaRule],
