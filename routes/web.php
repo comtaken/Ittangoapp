@@ -27,6 +27,9 @@ Route::get('/login', [AuthCountroller::class,'login'])->name('login');
 //ログイン処理
 Route::post('/auth', [AuthCountroller::class,'auth'])->name('auth');
 
+//ログアウト
+Route::get('/logout', [AuthCountroller::class,'logout'])->name('logout');
+
 //ユーザー新規登録表示
 Route::get('/createUser', [AuthCountroller::class,'createUser'])->name('createUser');
 

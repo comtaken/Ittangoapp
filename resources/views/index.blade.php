@@ -20,26 +20,35 @@
                 </ul>
             </div>
             @endif
+            @if (session('message'))
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="alert alert-warning">
+                        {{ session('message') }}
+                    </div>
+                </div>
+            </div>
+            @endif
             <div class="ml-48">
                 <div>
                     単語検索
                 </div>
                     <hr>
-                <form action="{{route('seach')}}" method="get">
-                    <div class="">
-                        <input
-                        class="border-solid border-2" name="seach_input">
-                        <input type="submit" formaction="{{route('seach')}}" value="検索" class="">
-                    </div>
-                </form>
-                <hr>
+                    <form action="{{route('seach')}}" method="get">
+                        <div class="">
+                            <input
+                            class="border-solid border-2" name="seach_input">
+                            <input type="submit" formaction="{{route('seach')}}" value="検索" class="">
+                        </div>
+                    </form>
+                    <hr>
                 <div class="col-sm-12">
                     <a href="{{route('create')}}" class="btn btn-primary" style="margin:20px;">新規登録</a>
-                    <a href="{{route('index')}}" class="btn btn-primary" style="margin:20px;">戻る</a>
+                    <a href="{{route('logout')}}" class="btn btn-primary" style="margin:20px;">ログアウト</a>
                 </div>
             </div>
         </header>
-                        <div class="container mx-auto">
+            <div class="container mx-auto">
                 <form action="" method="post">
                     @csrf
                     <table class="border-solid border-2 border-gray-300 ">
@@ -62,9 +71,7 @@
                         </tbody>
                     </table>
                 </form>
-                        </div>
             </div>
         <hr>
 </body>
-
 </html>

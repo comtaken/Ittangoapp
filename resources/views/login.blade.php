@@ -26,6 +26,11 @@
             </ul>
         </div>
     @endif
+    @if (session('flash_message'))
+        <div class="text-red-600">
+            {{ session('flash_message') }}
+        </div>
+    @endif
     </div>
     <form action="{{route('auth')}}" method="post">
         @csrf

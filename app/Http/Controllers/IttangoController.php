@@ -6,12 +6,20 @@ use Debugbar;
 use App\Models\Models\Ittango;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Controllers\Controller,
+    Session;
 
 class IttangoController extends Controller
 {
     //一覧表示
     public function index()
     {
+        session_start();
+        
+        if (!isset($_SESSION["login"])) {
+            return redirect('login')->with('flash_message', 'ログインしてください。');
+        }
+          
         $tango_list = Ittango::all();
         return view('index',compact('tango_list'));
     }

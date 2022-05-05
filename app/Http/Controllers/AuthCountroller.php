@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Debugbar;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Rules\AlphaRule;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller,
+    Session;
 
 /**
  * 認証機能
@@ -36,19 +39,41 @@ class AuthCountroller extends Controller
             'password.min'=>'パスワードは８文字以上で入力してください。',
             'password.max'=>'パスワードは１００文字以内で入力してください。',
         ]);
+       
+        DB::beginTransaction();
 
         $result = false;
+        
+        try{
+            $user = User::where('email',$request->email)->first();
 
+            $result = password_verify($request->password,$user->password);
+            
+            if($request->email == $user->email && $result)
+            {
+                session_start();
+                session_regenerate_id(TRUE);
+                $_SESSION["id"] = $request->session()->getId();
+                $_SESSION["login"] = $user->name;
+                
+               
+                return redirect('index')->with('message', 'ログイン成功しました。');
+            }
 
+        }catch(\Exception $e){
 
-        if($result)
-        {
-            return redirect()->route('index');
-        }else{
-            //TODO: ログイン失敗しました。の画面に遷移
             return view('error.errorLogin');
         }
         
+        
+    }
+
+    //ログアウト
+    public function logout()
+    {
+        session_start();
+        $_SESSION = array();
+        return redirect('login');
     }
 
     //新規ユーザ登録画面表示
