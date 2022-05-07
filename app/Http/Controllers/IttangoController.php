@@ -37,8 +37,14 @@ class IttangoController extends Controller
         $input = $request->input('seach_input');
         if(isset($input))
         {
-            $tango_list = Ittango::select('*')->where('tango','like',"%$input%")->orderBy('tango', 'asc')->get();
-            $flag = isset($tango_list);
+            $tango_list = Ittango::where('tango','like',"%$input%")->orderBy('tango', 'asc');
+            //レコード１件でも取得でtrue
+            $flag = $tango_list->exists();
+            $tango_list = $tango_list->get();
+            //取得レコード０件ならfalseのまま
+            if(!$flag){
+                return redirect('index')->with('message', '検索結果は０件です。');
+            }
             return view('index',compact('tango_list','flag'));
         }
 
