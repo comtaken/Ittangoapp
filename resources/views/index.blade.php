@@ -11,7 +11,7 @@
     <title>単語帳</title>
 </head>
 <body class="">
-        <header class="header">
+        <header class="header" style="padding-left: 0px;padding-bottom: 0px;padding-right: 0px;padding-top: 0px;">
                             
             <div class="ml-48">
                 <div>
@@ -29,7 +29,7 @@
                     </form>
                     <hr>
                 <div class="col-sm-12">
-                    <a href="{{route('create')}}" class="btn btn-primary" style="margin:20px;">新規登録</a>
+                    <a href="{{route('create')}}" class="btn btn-primary" style="margin:20px;">単語登録</a>
                     <a href="{{route('logout')}}" class="btn btn-primary" style="margin:20px;">ログアウト</a>
                 </div>
                 <div>
@@ -68,18 +68,19 @@
                                 <table class="border-solid border-2 border-gray-300 ">
                                     <thead class="text-2xl font-bold">
                                         <tr>
-                                            <td class="border-solid border-2 border-gray-300">単語</td>
-                                            <td class="border-solid border-2 border-gray-300">説明</td>
+                                            <th class="th_td1 border-solid border-2 border-gray-300">単語</th>
+                                            <th class="th_td2 border-solid border-2 border-gray-300">説明</th>
+                                            <th class="th_td3 border-solid border-2 border-gray-300">操作</th>
                                             {{-- <td class="border-solid border-2 border-gray-300">調べ回数</td> --}}
                                         </tr>
                                     </thead>
                                     <tbody class="text-lg">
                                         @foreach($tango_list as $item)
                                         <tr class="border-solid border-2 border-gray-300">
-                                            <td class="border-solid border-2 border-gray-300">{{$item->tango}}</td>
-                                            <td class="border-solid border-2 border-gray-300">{{$item->setumei}}</td>
+                                            <td class="th_td1 border-solid border-2 border-gray-300">{{$item->tango}}</td>
+                                            <td class="th_td2border-solid border-2 border-gray-300">{{$item->setumei}}</td>
                                             {{-- <td class="border-solid border-2 border-gray-300">{{$item->kaisu}}</td> --}}
-                                            <td><a href="./edit/{{$item->id}}" class="btn btn-primary btn-sm">編集</a></td>
+                                            <td class="th_td3"><a href="./edit/{{$item->id}}" class="btn btn-primary btn-sm">編集</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>
