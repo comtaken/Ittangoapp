@@ -1,0 +1,19 @@
+/*
+使用画面
+login.blade.php
+create.User.blade.php
+create.blade.php
+
+
+
+*/
+.wrapper .container{
+    max-width:1000px;
+    padding:80px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    width: 30em;
+    transform: scale(1.3, 1.3);
+}
+

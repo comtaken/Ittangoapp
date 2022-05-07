@@ -66,10 +66,11 @@ class IttangoController extends Controller
         $tango_list = new Ittango;
         $tango_list->tango = $request->input('newtango');
         $tango_list->setumei = $request->input('newsetumei');
-        $tango_list->kaisu = 0;
+        //TODO: 参考記事の登録
+        $tango_list->sankoukizi = "";
         $tango_list->save();
         
-        //ToDo 違う方法で二重送信回避したい
+        //TODO: 違う方法で二重送信回避したい
         header('Location: ./index');
 		exit;
         return $this->index();
