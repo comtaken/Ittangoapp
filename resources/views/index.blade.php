@@ -6,13 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/app.css" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    {{-- <link href="./css/login.css" rel="stylesheet">  --}}
+    <link href="./css/kyotusmall.css" rel="stylesheet"> 
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <title>単語帳</title>
 </head>
 <body class="">
-        <section class="wrapper">
-            <div class="container">
+        <header class="header">
+                            
+            <div class="ml-48">
+                <div>
+                    単語検索
+                    
+                    <hr>
+                </div>
+                
+                    <form action="{{route('seach')}}" method="get">
+                        <div class="">
+                            <input
+                            class="border-solid border-2" name="seach_input">
+                            <input type="submit" formaction="{{route('seach')}}" value="検索" class="">
+                        </div>
+                    </form>
+                    <hr>
+                <div class="col-sm-12">
+                    <a href="{{route('create')}}" class="btn btn-primary" style="margin:20px;">新規登録</a>
+                    <a href="{{route('logout')}}" class="btn btn-primary" style="margin:20px;">ログアウト</a>
+                </div>
+                <div>
+                    @if($flag)
+                    <button type="button" onClick="history.back()">戻る</button>
+                    {{$flag = false;}} 
+                    @endif
+                </div>
+            </div>
+        </header>
+        <section class="wrapper2">
+            <div class="container2">
                 @if ($errors->any())
                         <div class="">
                             <ul>
@@ -32,27 +61,7 @@
                         </div>
                         @endif
                 <div class="content">
-                    <header class="sticky top-0 z-50 bg-slate-200">
-                        
-                        <div class="ml-48">
-                            <div>
-                                単語検索
-                            </div>
-                                <hr>
-                                <form action="{{route('seach')}}" method="get">
-                                    <div class="">
-                                        <input
-                                        class="border-solid border-2" name="seach_input">
-                                        <input type="submit" formaction="{{route('seach')}}" value="検索" class="">
-                                    </div>
-                                </form>
-                                <hr>
-                            <div class="col-sm-12">
-                                <a href="{{route('create')}}" class="btn btn-primary" style="margin:20px;">新規登録</a>
-                                <a href="{{route('logout')}}" class="btn btn-primary" style="margin:20px;">ログアウト</a>
-                            </div>
-                        </div>
-                    </header>
+                    
                         <div class="container mx-auto">
                             <form action="" method="post">
                                 @csrf

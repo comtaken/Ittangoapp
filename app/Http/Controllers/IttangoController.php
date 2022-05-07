@@ -19,14 +19,15 @@ class IttangoController extends Controller
         if (!isset($_SESSION["login"])) {
             return redirect('login')->with('flash_message', 'ログインしてください。');
         }
-          
+        $flag = false;
         $tango_list = Ittango::all();
-        return view('index',compact('tango_list'));
+        return view('index',compact('tango_list','flag'));
     }
 
     //検索処理
     public function seach(Request $request)
     {
+        $flag = false;
         $validated = $request->validate([
             'seach_input'=>'required',
         ],
@@ -36,9 +37,9 @@ class IttangoController extends Controller
         $input = $request->input('seach_input');
         if(isset($input))
         {
-            $tango_list = Ittango::select('*')->where('tango','like',"%$input%")->get();
-
-            return view('index',compact('tango_list'));
+            $tango_list = Ittango::select('*')->where('tango','like',"%$input%")->orderBy('tango', 'asc')->get();
+            $flag = isset($tango_list);
+            return view('index',compact('tango_list','flag'));
         }
 
         
