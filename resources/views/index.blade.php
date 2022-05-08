@@ -20,18 +20,22 @@
                     <hr>
                 </div>
                 
-                    <form action="{{route('seach')}}" method="get">
-                        <div class="">
-                            <input
-                            class="border-solid border-2" name="seach_input">
-                            <input type="submit" formaction="{{route('seach')}}" value="検索" class="">
-                        </div>
-                    </form>
+                <form action="{{route('seach')}}" method="get">
+                    <div class="">
+                        <input
+                        class="border-solid border-2" name="seach_input">
+                        <input type="submit" formaction="{{route('seach')}}" value="検索" class="">
+                    </div>
+                </form>
                     <hr>
                 <div class="col-sm-12">
                     <a href="{{route('create')}}" class="btn btn-primary" style="margin:20px;">単語登録</a>
                     <a href="{{route('logout')}}" class="btn btn-primary" style="margin:20px;">ログアウト</a>
                 </div>
+                <div>
+                    <a href="{{route('createUser')}}" class="btn btn-primary" style="margin:20px;">ユーザ新規登録</a>
+                </div>
+            
                 <div>
                     @if($flag)
                     <button type="button" onClick="history.back()">戻る</button>
@@ -62,25 +66,25 @@
                         @endif
                 <div class="content">
                     
-                        <div class="container mx-auto">
+                        <div class="scroll container mx-auto">
                             <form action="" method="post">
                                 @csrf
                                 <table class="border-solid border-2 border-gray-300 ">
                                     <thead class="text-2xl font-bold">
                                         <tr>
-                                            <th class="th_td1 border-solid border-2 border-gray-300">単語</th>
-                                            <th class="th_td2 border-solid border-2 border-gray-300">説明</th>
-                                            <th class="th_td3 border-solid border-2 border-gray-300">操作</th>
+                                            <th class="th1 border-solid border-2 border-gray-300">単語</th>
+                                            <th class="th2 border-solid border-2 border-gray-300">説明</th>
+                                            <th class="th3 border-solid border-2 border-gray-300">操作</th>
                                             {{-- <td class="border-solid border-2 border-gray-300">調べ回数</td> --}}
                                         </tr>
                                     </thead>
                                     <tbody class="text-lg">
                                         @foreach($tango_list as $item)
                                         <tr class="border-solid border-2 border-gray-300">
-                                            <td class="th_td1 border-solid border-2 border-gray-300">{{$item->tango}}</td>
-                                            <td class="th_td2 border-solid border-2 border-gray-300">{{$item->setumei}}</td>
+                                            <td class="td1 border-solid border-2 border-gray-300">{{$item->tango}}</td>
+                                            <td class="td2 border-solid border-2 border-gray-300">{{$item->setumei}}</td>
                                             {{-- <td class="border-solid border-2 border-gray-300">{{$item->kaisu}}</td> --}}
-                                            <td class="th_td3"><a href="./edit/{{$item->id}}" class="btn btn-primary btn-sm">編集</a></td>
+                                            <td class="td3"><a href="./edit/{{$item->id}}" class="btn btn-primary btn-sm">編集</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>

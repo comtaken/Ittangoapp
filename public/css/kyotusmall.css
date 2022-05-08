@@ -2,6 +2,8 @@
 *{
     padding:0;
     margin:0;
+    float: none;
+	position: static;
   }
 /*
 使用画面
@@ -22,16 +24,28 @@ padding:10px;
 index >>> thead固定
 テーブルスクロール
 */
-.th_td1 {
-    width: 198px;
+.th1 {
+    width: 100px;
 }
 
-.th_td2 {
-    width: 1079px;
+.th2 {
+    width: 1300px;
 }
 
-.th_td3 {
-    width: 59px;
+.th3 {
+    width: 50px;
+}
+
+.td1 {
+    width: 100px;
+}
+
+.td2 {
+    width: 1300px;
+}
+
+.td3 {
+    width: 50px;
 }
 
 thead, tbody {
@@ -41,7 +55,7 @@ tbody {
     overflow-x: hidden;
     overflow-y: scroll;
     height: 800px;
-  }
+}
 
 /*
 使用画面
@@ -72,4 +86,56 @@ index.blade.php
     margin-right: auto;
     margin-top: 135px;
     width: 110em;
+}
+
+
+@media screen and (max-width:490px) {
+	.wrapper .container{
+        max-width:200px;
+        padding:30px 0px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 150px;
+        width: 30em;
+        transform: scale(1.3, 1.3);
+    }
+
+    .wrapper2 .container2{
+        max-width:400px;
+        
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 135px;
+        width: 110em;
+    }
+
+    /*
+使用画面
+index >>> thead固定
+テーブルスクロール
+*/
+.th1 {
+    width: 176px;
+}
+
+.th2 {
+    width: 1212px;
+}
+
+.th3 {
+    width: 141px;
+}
+
+.td1 {
+    width: 91px;
+}
+
+.td2 {
+    width: 1095px;
+}
+
+.td3 {
+    width: 162px;
+}
+   
 }
