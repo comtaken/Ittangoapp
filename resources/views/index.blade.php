@@ -78,7 +78,7 @@
                                         @foreach($tango_list as $item)
                                         <tr class="border-solid border-2 border-gray-300">
                                             <td class="th_td1 border-solid border-2 border-gray-300">{{$item->tango}}</td>
-                                            <td class="th_td2border-solid border-2 border-gray-300">{{$item->setumei}}</td>
+                                            <td class="th_td2 border-solid border-2 border-gray-300">{{$item->setumei}}</td>
                                             {{-- <td class="border-solid border-2 border-gray-300">{{$item->kaisu}}</td> --}}
                                             <td class="th_td3"><a href="./edit/{{$item->id}}" class="btn btn-primary btn-sm">編集</a></td>
                                         </tr>
