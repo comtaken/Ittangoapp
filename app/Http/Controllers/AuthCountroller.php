@@ -57,7 +57,8 @@ class AuthCountroller extends Controller
                 $_SESSION["login"] = $user->name;
                 
                
-                return redirect('index')->with('message', 'ログイン成功しました。');
+                // return redirect('main')->with('message', 'ログイン成功しました。');
+                return redirect('main');
             }
 
         }catch(\Exception $e){

@@ -11,6 +11,12 @@ use App\Http\Controllers\Controller,
 
 class IttangoController extends Controller
 {
+    //mainメニュー表示
+    public function main()
+    {
+        return view('main')->with('message', 'ログイン成功しました。');
+    }
+
     //一覧表示
     public function index()
     {

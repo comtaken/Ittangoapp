@@ -30,6 +30,9 @@ Route::post('/auth', [AuthCountroller::class,'auth'])->name('auth');
 //ログアウト
 Route::get('/logout', [AuthCountroller::class,'logout'])->name('logout');
 
+//メインメニュー
+Route::get('/main', [IttangoController::class, 'main'])->name('main');
+
 //ユーザー新規登録表示
 Route::get('/createUser', [AuthCountroller::class,'createUser'])->name('createUser');
 
