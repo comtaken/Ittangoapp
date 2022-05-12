@@ -60,7 +60,7 @@
                     </div>
                     <br>
                     <div>
-                        <a href="{{route('login')}}" class="btn btn-primary" style="margin:20px;">戻る</a>
+                    <button type="button" onClick="history.back()">戻る</button>
                     </div>
                 </form>
             </div>
