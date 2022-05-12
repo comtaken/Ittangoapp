@@ -23,8 +23,8 @@
                 <form action="{{route('seach')}}" method="get">
                     <div class="">
                         <input
-                        class="border-solid border-2" name="seach_input">
-                        <input type="submit" formaction="{{route('seach')}}" value="検索" class="">
+                        class="border-solid border-2" name="seach_input" required="required">
+                        <input type="submit" formaction="{{route('seach')}}" value="検索" class="" >
                     </div>
                 </form>
                     <hr>
@@ -37,10 +37,11 @@
                 </div>
             
                 <div>
-                    @if($flag)
+                    <button type="button" onClick="history.back()">戻る</button>
+                    {{-- @if($flag)
                     <button type="button" onClick="history.back()">戻る</button>
                     {{$flag = false;}} 
-                    @endif
+                    @endif --}}
                 </div>
             </div>
         </header>

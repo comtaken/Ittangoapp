@@ -9,13 +9,18 @@
     <title>メインメニュー</title>
 </head>
 <body>
-    @if (isset($message))
-                <div class="alert alert-danger">
-                    <ul>
-                        <li class="text-green-400">{{ $message}}</li>
-                    </ul>
-                </div>
-            @endif
-    <a href="{{route('index')}}"></a>
+    @if (session('flash_message'))
+            <div class="flash_message">
+                <div class="alert alert-success">{{session('flash_message')}}</div>
+            </div>
+        @endif
+    <a href="{{route('index')}}">メインメニュー</a>
+    <section class="wrapper">
+        <div class="container">
+            <div class="content">
+                {{-- html --}}
+            </div>
+        </div>
+    </section>
 </body>
 </html>

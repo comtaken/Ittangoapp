@@ -14,7 +14,8 @@ class IttangoController extends Controller
     //mainメニュー表示
     public function main()
     {
-        return view('main')->with('message', 'ログイン成功しました。');
+        session()->flash('flash_message', 'ログイン成功しました。');
+        return view('main');
     }
 
     //一覧表示
