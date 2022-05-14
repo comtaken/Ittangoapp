@@ -21,7 +21,6 @@ class AuthCountroller extends Controller
     //ログイン画面表示
     public function login()
     {
-        
         return view('login');
     }
 
@@ -43,7 +42,7 @@ class AuthCountroller extends Controller
         DB::beginTransaction();
 
         $result = false;
-        
+        $aleartflg = false;
         try{
             $user = User::where('email',$request->email)->first();
 
@@ -55,9 +54,8 @@ class AuthCountroller extends Controller
                 session_regenerate_id(TRUE);
                 $_SESSION["id"] = $request->session()->getId();
                 $_SESSION["login"] = $user->name;
-                
-               
-                // return redirect('main')->with('message', 'ログイン成功しました。');
+                $_SESSION["logflg"] = true;
+
                 return redirect('main');
             }
 
@@ -74,7 +72,7 @@ class AuthCountroller extends Controller
     {
         session_start();
         $_SESSION = array();
-        return redirect('login');
+        return redirect('login')->with('flash_message', 'ログアウトしました。');
     }
 
     //新規ユーザ登録画面表示

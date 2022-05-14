@@ -6,23 +6,25 @@ use Debugbar;
 use App\Models\Models\Ittango;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Controllers\Controller,
-    Session;
+use App\Http\Controllers\Controller;
+
 
 class IttangoController extends Controller
 {
     //mainメニュー表示
     public function main()
     {
-        session()->flash('flash_message', 'ログイン成功しました。');
-        return view('main');
+        session_start();
+        $message = 'ログイン成功しました。';
+        $logflg = $_SESSION['logflg'];
+        session()->now('flash_message', $message);
+        return view('main',['logflg'=>$logflg]);
     }
 
     //一覧表示
     public function index()
     {
         session_start();
-        
         if (!isset($_SESSION["login"])) {
             return redirect('login')->with('flash_message', 'ログインしてください。');
         }

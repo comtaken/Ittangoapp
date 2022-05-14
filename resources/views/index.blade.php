@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/app.css" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="./css/kyotusmall.css" rel="stylesheet"> 
+    <link href="./css/kyotumain.css" rel="stylesheet"> 
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <title>単語帳</title>
 </head>
@@ -28,8 +28,7 @@
                     </div>
                 </form>
                     <hr>
-                <div class="col-sm-12">
-                    <a href="{{route('create')}}" class="btn btn-primary" style="margin:20px;">単語登録</a>
+                <div class="">
                     <a href="{{route('logout')}}" class="btn btn-primary" style="margin:20px;">ログアウト</a>
                 </div>
                 <div>
@@ -37,7 +36,7 @@
                 </div>
             
                 <div>
-                    <button type="button" onClick="history.back()">戻る</button>
+                    <a href="{{route('main')}}" class="btn btn-primary" style="margin:20px;">メインメニューへ</a>
                     {{-- @if($flag)
                     <button type="button" onClick="history.back()">戻る</button>
                     {{$flag = false;}} 
@@ -79,7 +78,7 @@
                                             {{-- <td class="border-solid border-2 border-gray-300">調べ回数</td> --}}
                                         </tr>
                                     </thead>
-                                    <tbody class="text-lg">
+                                    <tbody class="tbody_itg">
                                         @foreach($tango_list as $item)
                                         <tr class="border-solid border-2 border-gray-300">
                                             <td class="td1 border-solid border-2 border-gray-300">{{$item->tango}}</td>
