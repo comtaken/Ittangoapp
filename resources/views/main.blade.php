@@ -11,6 +11,7 @@
     <section class="wrapper">
         <div class="">
             <a href="{{route('logout')}}" class="btn btn-primary" style="margin:20px;">ログアウト</a>
+            <a href="{{route('createUser')}}" class="btn btn-primary" style="margin:20px;">ユーザ新規登録</a>
         </div>
         <div class="container">
             @if ($logflg)

@@ -30,13 +30,9 @@
                     <hr>
                 <div class="">
                     <a href="{{route('logout')}}" class="btn btn-primary" style="margin:20px;">ログアウト</a>
-                </div>
-                <div>
-                    <a href="{{route('createUser')}}" class="btn btn-primary" style="margin:20px;">ユーザ新規登録</a>
-                </div>
-            
-                <div>
                     <a href="{{route('main')}}" class="btn btn-primary" style="margin:20px;">メインメニューへ</a>
+                </div>
+                <div>
                     {{-- @if($flag)
                     <button type="button" onClick="history.back()">戻る</button>
                     {{$flag = false;}} 
