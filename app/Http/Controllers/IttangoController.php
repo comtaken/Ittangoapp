@@ -15,10 +15,16 @@ class IttangoController extends Controller
     public function main()
     {
         session_start();
-        $message = 'ログイン成功しました。';
-        $logflg = $_SESSION['logflg'];
-        session()->now('flash_message', $message);
-        return view('main',['logflg'=>$logflg]);
+        try {
+            $message = 'ログイン成功しました。';
+            $logflg = $_SESSION['logflg'];
+            session()->now('flash_message', $message);
+            return view('main',['logflg'=>$logflg]);
+        }catch(\Exception $e) {
+            $_SESSION = array();
+            return view('login');
+        }
+        
     }
 
     //一覧表示
