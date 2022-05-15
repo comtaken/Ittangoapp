@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/login', [AuthCountroller::class,'login'])->name('login');
 
 //ログイン処理
-Route::post('/auth', [AuthCountroller::class,'auth'])->name('auth');
+Route::get('/auth', [AuthCountroller::class,'auth'])->name('auth');
 
 //ログアウト
 Route::get('/logout', [AuthCountroller::class,'logout'])->name('logout');
@@ -37,8 +37,7 @@ Route::get('/main', [IttangoController::class, 'main'])->name('main');
 Route::get('/createUser', [AuthCountroller::class,'createUser'])->name('createUser');
 
 //ユーザー新規登録処理
-Route::post('/storeUser', [AuthCountroller::class,'storeUser'])->name('storeUser');
-
+Route::match(['get', 'post'],'/storeUser', [AuthCountroller::class,'storeUser'])->name('storeUser');
 //一覧表示
 Route::get('/index', [IttangoController::class,'index'])->name('index');
 
@@ -55,4 +54,5 @@ Route::post('/store', [IttangoController::class,'store'])->name('store');
 Route::get('/edit/{id}', [IttangoController::class,'edit']);
 
 //編集・削除処理
-Route::post('/up_dest',[IttangoController::class,'up_dest'])->name('up_dest');
+// Route::post('/up_dest',[IttangoController::class,'up_dest'])->name('up_dest');
+Route::match(['get', 'post'],'/up_dest',[IttangoController::class,'up_dest'])->name('up_dest');

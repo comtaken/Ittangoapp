@@ -78,15 +78,20 @@ class AuthCountroller extends Controller
     //新規ユーザ登録画面表示
     public function createUser()
     {
+        session_start();
+        if (!isset($_SESSION["login"])) {
+            return redirect('login')->with('flash_message', 'ログインしてください。');
+        }
         return view('sinkiusertoroku.createUser');
     }
 
-    //TODO: トランザクション入れる
     //新規ユーザ登録処理
     public function storeUser(Request $request)
     {
-        
-
+        session_start();
+        if (!isset($_SESSION["login"])) {
+            return redirect('login')->with('flash_message', 'ログインしてください。');
+        }
         $validated = $request->validate([
             'name'=>'required',
             'email'=>'required',

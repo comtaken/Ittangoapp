@@ -35,7 +35,7 @@
             @endif
             <div class="content">
                 <h3>ログイン</h3>
-                <form action="{{route('auth')}}" method="post">
+                <form action="{{route('auth')}}" method="get">
                     @csrf
                     <div class="">
                         E-mail:

@@ -114,6 +114,10 @@ class IttangoController extends Controller
     // 編集、削除処理
     public function up_dest(Request $request)
     {
+        session_start();
+        if (!isset($_SESSION["login"])) {
+            return redirect('login')->with('flash_message', 'ログインしてください。');
+        }
         $validated = $request->validate([
             'newtango'=>'required',
             'newsetumei'=>'required',
