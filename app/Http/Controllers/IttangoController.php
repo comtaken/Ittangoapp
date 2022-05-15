@@ -30,7 +30,7 @@ class IttangoController extends Controller
         }
         $flag = false;
         $tango_list = Ittango::all();
-        return view('index',compact('tango_list','flag'));
+        return view('Ittangocho.index',compact('tango_list','flag'));
     }
 
     //検索処理
@@ -54,7 +54,7 @@ class IttangoController extends Controller
             if(!$flag){
                 return redirect('index')->with('message', '検索結果は０件です。');
             }
-            return view('index',compact('tango_list','flag'));
+            return view('Ittangocho.index',compact('tango_list','flag'));
         }
 
         
@@ -63,7 +63,7 @@ class IttangoController extends Controller
     //新規登録画面へ
     public function create()
     {
-        return view('create');
+        return view('Ittangocho.create');
     }
 
     //新規登録処理
@@ -102,7 +102,7 @@ class IttangoController extends Controller
 
         $tango_list = Ittango::where('id',$id)->get();
         
-        return view('edit',compact('id','tango_list'));
+        return view('Ittangocho.edit',compact('id','tango_list'));
     }
         
     // 編集、削除処理

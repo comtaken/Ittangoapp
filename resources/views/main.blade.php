@@ -31,8 +31,7 @@
                         <a href="#"><img src="./image/ryorisyasin.jpg" alt="" width="150" height="150"></a>
                     </td>
                     <td>
-                        TODO: 新規ユーザー登録処理実装
-                        <a href="#"><img src="./image/sinkiuser.jpg" alt="" width="150" height="150"></a>
+                        <a href="{{route('createUser')}}"><img src="./image/sinkiuser.jpg" alt="" width="150" height="150"></a>
                     </td>
                 </tr>
             </table>

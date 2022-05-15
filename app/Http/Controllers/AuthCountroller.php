@@ -78,7 +78,7 @@ class AuthCountroller extends Controller
     //新規ユーザ登録画面表示
     public function createUser()
     {
-        return view('createUser');
+        return view('sinkiusertoroku.createUser');
     }
 
     //TODO: トランザクション入れる
