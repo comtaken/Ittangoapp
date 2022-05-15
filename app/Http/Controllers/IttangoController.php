@@ -75,7 +75,10 @@ class IttangoController extends Controller
     //新規登録処理
     public function store(Request $request)
     {
-        
+        session_start();
+        if (!isset($_SESSION["login"])) {
+            return redirect('login')->with('flash_message', 'ログインしてください。');
+        }
         $vallidated = $request->validate([
             'newtango'=>'required',
             'newsetumei'=>'required',
