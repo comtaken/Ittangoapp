@@ -29,7 +29,8 @@
                 </form>
                     <hr>
                 <div class="">
-                    <a href="{{route('create')}}" class="btn btn-primary" style="margin:20px;">新規登録</a>
+                    <a href="{{route('create')}}" class="btn btn-primary" style="margin:20px;">単語登録</a>
+                    <a href="{{route('kosikikaisetu')}}" class="btn btn-primary" style="margin:20px;">基本情報公式解説</a>
                     <a href="{{route('main')}}" class="btn btn-primary" style="margin:20px;">メインメニューへ</a>
                     <a href="{{route('logout')}}" class="btn btn-primary" style="margin:20px;">ログアウト</a>
                 </div>

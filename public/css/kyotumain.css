@@ -1,28 +1,27 @@
 /* リセット */
-*{
-    padding:0;
-    margin:0;
+* {
+    padding: 0;
+    margin: 0;
     float: none;
-	position: static;
-  }
+    position: static;
+}
 
 /*
 メインメニュー画面
 */
-
 
 /*
 使用画面
 index >>> header固定
 */
 .header {
-width: 100%;
-position: fixed;
-left:0;
-top:0;
-z-index: 10;
-background:#ccc;
-padding:10px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background: #ccc;
+    padding: 10px;
 }
 
 /*
@@ -54,7 +53,8 @@ index >>> thead固定
     width: 50px;
 }
 
-thead, .tbody_itg {
+thead,
+.tbody_itg {
     display: block;
 }
 .tbody_itg {
@@ -70,10 +70,10 @@ create.User.blade.php
 create.blade.php
 edit.blade.php
 */
-.wrapper .container{
-    background-color:#F3FFD8;
-    max-width:1000px;
-    padding:80px 0px;
+.wrapper .container {
+    background-color: #dddddd;
+    max-width: 1000px;
+    padding: 80px 0px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 150px;
@@ -81,25 +81,23 @@ edit.blade.php
     transform: scale(1.3, 1.3);
 }
 
-
 /*
 使用画面
 index.blade.php
 */
-.wrapper2 .container2{
-    max-width:1500px;
-    
+.wrapper2 .container2 {
+    max-width: 1500px;
+
     margin-left: auto;
     margin-right: auto;
     margin-top: 135px;
     width: 110em;
 }
 
-
-@media screen and (max-width:490px) {
-	.wrapper .container{
-        max-width:200px;
-        padding:30px 0px;
+@media screen and (max-width: 490px) {
+    .wrapper .container {
+        max-width: 200px;
+        padding: 30px 0px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 150px;
@@ -107,9 +105,9 @@ index.blade.php
         transform: scale(1.3, 1.3);
     }
 
-    .wrapper2 .container2{
-        max-width:400px;
-        
+    .wrapper2 .container2 {
+        max-width: 400px;
+
         margin-left: auto;
         margin-right: auto;
         margin-top: 135px;
@@ -121,28 +119,27 @@ index.blade.php
 index >>> thead固定
 テーブルスクロール
 */
-.th1 {
-    width: 176px;
-}
+    .th1 {
+        width: 176px;
+    }
 
-.th2 {
-    width: 1212px;
-}
+    .th2 {
+        width: 1212px;
+    }
 
-.th3 {
-    width: 141px;
-}
+    .th3 {
+        width: 141px;
+    }
 
-.td1 {
-    width: 91px;
-}
+    .td1 {
+        width: 91px;
+    }
 
-.td2 {
-    width: 1095px;
-}
+    .td2 {
+        width: 1095px;
+    }
 
-.td3 {
-    width: 162px;
-}
-   
+    .td3 {
+        width: 162px;
+    }
 }

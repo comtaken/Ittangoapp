@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\IttangoController;
 
+use App\Http\Controllers\KosikikaisetuController;
+
 use App\Http\Controllers\AuthCountroller;
 
 use Illuminate\Support\Facades\Route;
@@ -11,6 +13,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/**
+ * 
+ * ログイン機能
+ * 
+ */
 //ログインページ表示
 Route::get('/login', [AuthCountroller::class,'login'])->name('login');
 
@@ -23,6 +30,11 @@ Route::get('/logout', [AuthCountroller::class,'logout'])->name('logout');
 //メインメニュー
 Route::get('/main', [IttangoController::class, 'main'])->name('main');
 
+/**
+ * 
+ * ユーザー管理
+ * 
+ */
 //ユーザー新規登録表示
 Route::get('/createUser', [AuthCountroller::class,'createUser'])->name('createUser');
 
@@ -32,6 +44,13 @@ Route::get('/createUser', [AuthCountroller::class,'createUser'])->name('createUs
  *controller内でloginページに戻す処理をしている。
  */
 Route::match(['get', 'post'],'/storeUser', [AuthCountroller::class,'storeUser'])->name('storeUser');
+
+/**
+ * 
+ * 
+ * IT単語帳
+ * 
+ */
 //一覧表示
 Route::get('/index', [IttangoController::class,'index'])->name('index');
 
@@ -57,3 +76,12 @@ Route::get('/edit/{id}', [IttangoController::class,'edit']);
  *controller内でloginページに戻す処理をしている。
  */
 Route::match(['get', 'post'],'/up_dest',[IttangoController::class,'up_dest'])->name('up_dest');
+
+/**
+ * 
+ * 
+ * 基本情報解説
+ * 
+ */
+//一覧表示
+Route::get('/kosikikaisetu', [KosikikaisetuController::class,'index'])->name('kosikikaisetu');
