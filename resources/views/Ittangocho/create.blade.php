@@ -32,7 +32,7 @@
                     <br>
                     説明：
                     <br>
-                    <input class="border-solid border-2" type="text" name="newsetumei">
+                    <textarea  class="border-solid border-2" type="text" cols="30" rows="10" name="newsetumei"></textarea>
                     <br>
                     <br>
                     <input type="submit" value="新規登録">

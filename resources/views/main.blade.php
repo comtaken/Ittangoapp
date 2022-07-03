@@ -20,6 +20,7 @@
             @php $_SESSION["logflg"] = false; @endphp
             @endif
             <div class="content">
+                <div style= "color:red">TODO: main画面タイルアイコン６枚並ぶようにmain専用のcss作成</div>
             <table>
                 <tr>
                     <td>
