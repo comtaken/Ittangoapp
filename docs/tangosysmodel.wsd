@@ -1,3 +1,7 @@
+//https://www.plantuml.com/
+//Decode URL
+//www.plantuml.com/plantuml/png/hO_DIiDG48NtUOgXRXBSH26Rh8fq8svyWp99XdIuFmbtvYfQ-kwMc6BYhIixo_ETWVDjHJ5eT3OxtuYjmPvWywoAlX_otLEnWRlTT73CCZXVQr44eb2GN1jR7AVq7bvVWBiQ6kxPwvnvT5J36uRsW07pnwegPa8EsLv78ugy3w6xJjj0gDJjKMjGTYIARfnP7Bi_s6cvdR_jalbJkayafdWnfYelMuGqEk85UoZB7uhU3D7m9w-UovkQc44ER3XncVFKvWAKrT9wUV6huf4_XhZk9AM6JThvh-4fsvBlehDV
+
 @startuml
 
 
@@ -14,10 +18,19 @@ package "Ittango(DB)" #DDDDDD {
     }
 
     class ittangos(tbl){
-    + PK id: bigint
+    + PK tango_id: bigint
     + tango: varchara(50)
-    + setumei: varchara(255)
-    + sankoukizi: varchara(255)
+    + setumei: varchara(1000)
+    + sankoukizi: varchara(500)
+    + created_at: timestamp
+    + updated_at: timestamp
+    }
+
+    class itkoshikis(tbl){
+    + PK koshiki_id: bigint
+    + koshiki_title: varchara(100)
+    + koshiki_naiyou: varchara(1000)
+    + koshiki_bikou: varchara(1000)
     + created_at: timestamp
     + updated_at: timestamp
     }
