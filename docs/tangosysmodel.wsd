@@ -1,0 +1,26 @@
+@startuml
+
+
+
+package "Ittango(DB)" #DDDDDD {
+
+    class users(tbl){
+    + PK id: bigint
+    + name: varchara(255)
+    + email: varchara(255)
+    + password: varchara(255)
+    + created_at: timestamp
+    + updated_at: timestamp
+    }
+
+    class ittangos(tbl){
+    + PK id: bigint
+    + tango: varchara(50)
+    + setumei: varchara(255)
+    + sankoukizi: varchara(255)
+    + created_at: timestamp
+    + updated_at: timestamp
+    }
+
+}
+@enduml
