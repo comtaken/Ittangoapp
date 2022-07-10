@@ -45,7 +45,7 @@
                     <textarea class="border-solid border-2" name="newsetumei" id="" cols="60" rows="7" value="{{$item->setumei}}">{{$item->setumei}}</textarea>
                     <br>
                     <br>
-                    <input type="hidden" name="id" value="{{$item->id}}">
+                    <input type="hidden" name="tango_id" value="{{$item->tango_id}}">
                     <input type="submit" name="store" value="編集完了">
                     <br>
                     <br>

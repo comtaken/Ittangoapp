@@ -76,13 +76,14 @@
                                             {{-- <td class="border-solid border-2 border-gray-300">調べ回数</td> --}}
                                         </tr>
                                     </thead>
+
                                     <tbody class="tbody_itg">
                                         @foreach($tango_list as $item)
                                         <tr class="border-solid border-2 border-gray-300">
                                             <td class="td1 border-solid border-2 border-gray-300">{{$item->tango}}</td>
                                             <td class="td2 border-solid border-2 border-gray-300">{{$item->setumei}}</td>
                                             {{-- <td class="border-solid border-2 border-gray-300">{{$item->kaisu}}</td> --}}
-                                            <td class="td3"><a href="./edit/{{$item->id}}" class="btn btn-primary btn-sm">編集</a></td>
+                                            <td class="td3"><a href="./edit/{{$item->tango_id}}" class="btn btn-primary btn-sm">編集</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>

@@ -68,7 +68,7 @@ Route::get('/create', [IttangoController::class,'create'])->name('create');
 Route::match(['get', 'post'],'/store', [IttangoController::class,'store'])->name('store');
 
 //編集画面
-Route::get('/edit/{id}', [IttangoController::class,'edit']);
+Route::get('/edit/{tango_id}', [IttangoController::class,'edit']);
 
 //編集・削除処理
 /**

@@ -107,11 +107,11 @@ class IttangoController extends Controller
         // 「削除してよろしいですか？」確認
     public function edit(Request $request)
     {
-        $id = $request->id;
-
-        $tango_list = Ittango::where('id',$id)->get();
         
-        return view('Ittangocho.edit',compact('id','tango_list'));
+        $tango_id = $request->tango_id;
+        $tango_list = Ittango::where('tango_id',$tango_id)->get();
+        
+        return view('Ittangocho.edit',compact('tango_id','tango_list'));
     }
         
     // 編集、削除処理
@@ -132,7 +132,7 @@ class IttangoController extends Controller
         //編集処理
         if($request->has('store'))
         {
-            Ittango::where('id',$request->id)->update([
+            Ittango::where('tango_id',$request->tango_id)->update([
                 'tango'=>$request->newtango,
                 'setumei'=>$request->newsetumei,
             ]);
@@ -142,10 +142,11 @@ class IttangoController extends Controller
         //削除処理
         if($request->has('destroy'))
         {
-            $tango_list = Ittango::find($request->id)->get();
+            $tango_list = Ittango::find($request->tango_id)->get();
+            
             if($tango_list !== null)
             {
-                $tango_list = Ittango::find($request->id)->delete();
+                $tango_list = Ittango::find($request->tango_id)->delete();
             }
         }
 
