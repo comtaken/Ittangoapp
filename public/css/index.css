@@ -1,0 +1,10 @@
+.index_image{
+
+}
+
+.index_menu {
+	display: flex;
+}
+.index_menu div a img {
+	width: 150px;
+} 
