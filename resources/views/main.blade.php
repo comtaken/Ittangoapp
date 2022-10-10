@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/index.css" rel="stylesheet"> 
+	<link href="./css/common.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">  
     <title>メインメニュー</title>
 </head>
 <body>
@@ -35,12 +36,13 @@
 			<div><a href="{{route('createUser')}}"><img src="./image/sinkiuser.jpg" alt="" ></a></div>
 		</section>
 		<hr>
-		<section>
-			<div>その他ITニュースサイト</div>
+		<section class="index_footer">
+			<div>ITおすすめニュースサイト</div>
 			<ul>
 				<li><a href="https://gigazine.net/?fbclid=IwAR2UKH5ECQHzF0LCDCVIWoVA_ovM9UshTPo3kq9QjaICPTejqCCX8GcxQNo">GIGAZIN</a></li>
 				<li><a href="https://atmarkit.itmedia.co.jp/">@IT</a></li>
 			</ul>
+			<hr>
 			<div><a href="">お問い合わせ</a></div>
 		</section>
 	</div>

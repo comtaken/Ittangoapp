@@ -8,3 +8,7 @@
 .index_menu div a img {
 	width: 150px;
 } 
+
+.index_footer ul li{
+	list-style: none;
+}
