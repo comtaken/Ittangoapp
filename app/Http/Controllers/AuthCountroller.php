@@ -30,13 +30,11 @@ class AuthCountroller extends Controller
         //ログインinputバリデーション
         $validated = $request->validate([
             'email'=>'required',
-            'password' => ['required','min:8','max:100',new AlphaRule],
+            'password' => ['required',new AlphaRule],
         ],
         [
             'email.required'=>'メールアドレスをを入力して下さい。', 
-            'password.required'=>'パスワードを入力して下さい。', 
-            'password.min'=>'パスワードは８文字以上で入力してください。',
-            'password.max'=>'パスワードは１００文字以内で入力してください。',
+            'password.required'=>'パスワードを入力して下さい。'
         ]);
        
         DB::beginTransaction();
@@ -78,6 +76,8 @@ class AuthCountroller extends Controller
     //新規ユーザ登録画面表示
     public function createUser()
     {
+
+		
         session_start();
         if (!isset($_SESSION["login"])) {
             return redirect('login')->with('flash_message', 'ログインしてください。');
